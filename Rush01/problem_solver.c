@@ -6,7 +6,7 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 21:43:56 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/12 22:39:05 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2019/10/13 21:15:35 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	problem_solver(char* tb, int pos)
 }
 
 
-int main()
+int main2()
 {
 	char tb[SIZE*SIZE] = {'0','0','0','0', '0','0','0','0','0'};
 	if(problem_solver(tb, 0))
@@ -53,5 +53,6 @@ int main()
 		for(int i =0; i<SIZE *SIZE; i++)
 			printf("%c ", tb[i]);
 	}
+	return 1;
 
 }
