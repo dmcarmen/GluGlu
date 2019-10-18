@@ -6,11 +6,11 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 21:00:49 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/09 21:04:12 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2019/10/16 18:27:55 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
 void	ft_print_reverse_alphabet(void)
 {
@@ -19,7 +19,7 @@ void	ft_print_reverse_alphabet(void)
 	i = 'z';
 	while (i >= 'a')
 	{
-		write(1, &a, 1);
+		write(1, &i, 1);
 		i--;
 	}
 }

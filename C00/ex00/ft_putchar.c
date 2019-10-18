@@ -6,11 +6,11 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 20:56:18 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/09 20:56:41 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2019/10/16 18:24:50 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {

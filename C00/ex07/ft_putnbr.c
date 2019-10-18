@@ -1,21 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/16 18:43:00 by cdiez-me          #+#    #+#             */
+/*   Updated: 2019/10/16 18:45:27 by cdiez-me         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void    ft_putchar(char i)
+void	ft_putchar(char i)
 {
-        write(1, &i, 1);
+	write(1, &i, 1);
 }
 
-void    ft_putnbr(int nb)
+void	ft_putnbr(int nb)
 {
-	char	aux;
-	int	n;
-
 	if (nb == -2147483648)
-   	 {
-       		 ft_putchar('-');
-       		 ft_putchar('2');
-       		 ft_putnbr(147483648);
-   	 }
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		ft_putnbr(147483648);
+	}
 	else if (nb < 0)
 	{
 		ft_putchar('-');
@@ -30,13 +39,4 @@ void    ft_putnbr(int nb)
 	{
 		ft_putchar(nb + '0');
 	}
-}
-
-int main()
-{
-        ft_putnbr(42);
-	ft_putnbr(0);
-	ft_putnbr(-2);
-	ft_putnbr(2147483647);
-        return 0;
 }

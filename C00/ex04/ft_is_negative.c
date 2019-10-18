@@ -6,11 +6,11 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 21:04:46 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/09 21:08:01 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2019/10/16 18:31:40 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
 void	ft_is_negative(int n)
 {
@@ -24,5 +24,5 @@ void	ft_is_negative(int n)
 	{
 		i = 'P';
 	}
-	write(1, &a, 1);
+	write(1, &i, 1);
 }

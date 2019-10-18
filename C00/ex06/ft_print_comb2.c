@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/16 18:38:18 by cdiez-me          #+#    #+#             */
+/*   Updated: 2019/10/16 18:42:31 by cdiez-me         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void    ft_put_nbr1(int i)
+void	ft_put_nbr1(int i)
 {
-        char    aux;
+	char	aux;
 
 	if (i < 10)
 	{
@@ -19,30 +31,24 @@ void    ft_put_nbr1(int i)
 	}
 }
 
-void    ft_print_comb2(void)
+void	ft_print_comb2(void)
 {
-        int     i;
-        int     j;
+	int	i;
+	int	j;
 
-        i = 0;
-        while (i < 99)
-        {
-                j = i + 1;
-                while (j < 100)
-                {
-                        ft_put_nbr1(i);
+	i = 0;
+	while (i < 99)
+	{
+		j = i + 1;
+		while (j < 100)
+		{
+			ft_put_nbr1(i);
 			write(1, " ", 1);
-                        ft_put_nbr1(j);
-                        if (!(i == 98 && j == 99))
-                        	write(1, ", ", 2);
-                        j++;
-                }
-                i++;
-        }
-}
-
-int main()
-{
-        ft_print_comb2();
-        return 0;
+			ft_put_nbr1(j);
+			if (!(i == 98 && j == 99))
+				write(1, ", ", 2);
+			j++;
+		}
+		i++;
+	}
 }
