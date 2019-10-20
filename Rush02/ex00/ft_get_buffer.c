@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   ft_get_buffer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: edramire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 18:15:33 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/19 22:14:35 by edramire         ###   ########.fr       */
+/*   Created: 2019/10/20 19:08:01 by edramire          #+#    #+#             */
+/*   Updated: 2019/10/20 21:05:14 by edramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# define LIST_H
-# include <stdio.h>
-# include <stdlib.h>
-# include "ft.h"
+#include "ft.h"
 
+char	*ft_get_buffer(int size, char *buffer)
+{
+	char	*aux;
+
+	aux = malloc(sizeof(char) * size);
+	if (buffer != NULL)
+	{
+		ft_strcpy(aux, buffer);
+		free(buffer);
+	}
+	return (aux);
+}
