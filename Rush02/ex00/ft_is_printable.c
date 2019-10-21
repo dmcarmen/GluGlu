@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_is_printable.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: edramire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/20 22:15:13 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/20 22:15:17 by cdiez-me         ###   ########.fr       */
+/*   Created: 2019/10/20 13:28:46 by edramire          #+#    #+#             */
+/*   Updated: 2019/10/20 13:29:54 by edramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+int		ft_is_printable(char c)
 {
-	while (str[i])
-	{
-		if (str[i] < 'A' || str[i] > 'z')
-			return (0);
-		i++;
-	}
-	return (1);
+	if (c >= ' ' && c <= '~')
+		return (1);
+	return (0);
 }

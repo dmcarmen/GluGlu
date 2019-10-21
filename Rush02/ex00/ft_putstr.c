@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: edramire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/20 22:15:13 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/20 22:15:17 by cdiez-me         ###   ########.fr       */
+/*   Created: 2019/10/19 14:35:04 by edramire          #+#    #+#             */
+/*   Updated: 2019/10/20 12:00:38 by edramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+#include "ft.h"
+
+void	ft_putstr(char *str)
 {
-	while (str[i])
-	{
-		if (str[i] < 'A' || str[i] > 'z')
-			return (0);
-		i++;
-	}
-	return (1);
+	while (*str != '\0')
+		ft_putchar(*str++);
 }
