@@ -5,6 +5,7 @@ int	ft_str_is_alpha(char *str)
 	{
 		if (str[i] < 'A' || str[i] > 'z')
 			return (0);
+		i++;
 	}
 	return (1);
 }
