@@ -6,7 +6,7 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 22:14:21 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/20 22:14:25 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2019/10/24 19:18:32 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ char	*ft_strcpy(char *dest, char *src)
 		dest[i] = src[i];
 		i++;
 	}
+	dest[i] = 0;
 	return (dest);
 }

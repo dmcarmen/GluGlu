@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/21 12:41:11 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/24 19:41:27 by cdiez-me         ###   ########.fr       */
+/*   Created: 2019/10/24 20:24:55 by cdiez-me          #+#    #+#             */
+/*   Updated: 2019/10/24 20:33:08 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strupcase(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	len;
 
 	i = 0;
-	while (str[i])
+	len = 0;
+	while (src[len])
+		len++;
+	while (i < size - 1 && src[i])
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] -= ('a' - 'A');
+		dest[i] = src[i];
 		i++;
 	}
-	return (str);
+	while (dest[i])
+	{
+		dest[i] = 0;
+		i++;
+	}
+	return (len);
 }

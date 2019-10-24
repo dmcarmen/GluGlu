@@ -6,7 +6,7 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 12:41:43 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/21 12:42:52 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2019/10/24 19:42:01 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strlowcase(char *str)
 	while (str[i])
 	{
 		if (str[i] <= 'Z' && str[i] >= 'A')
-			str[i] -= ('a' - 'A');
+			str[i] += ('a' - 'A');
 		i++;
 	}
 	return (str);
