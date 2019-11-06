@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 17:28:46 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/11/06 19:51:26 by cdiez-me         ###   ########.fr       */
+/*   Created: 2019/11/06 17:47:35 by cdiez-me          #+#    #+#             */
+/*   Updated: 2019/11/06 17:49:55 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *str)
+int	ft_isprint(int c)
 {
-	int n;
-	int	i;
-	int	flag;
-
-	n = 0;
-	i = 0;
-	flag = 0;
-	if (str[i] == '-')
-	{
-		if (strcmp(str, "-2147483648") == 0)
-			return (-2147483648);
-		else
-		{
-			flag = 1;
-			i++;
-		}
-	}
-	while (str[i] != '\0' && ft_isdigit(str[i]))
-		n = n * 10 + (str[i++] - '0');
-	if (flag)
-		n = -n;
-	return (n);
+	if (c < 31 || c > 127)
+		return (0);
+	return (1);
 }

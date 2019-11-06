@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 17:28:46 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/11/06 19:51:26 by cdiez-me         ###   ########.fr       */
+/*   Created: 2019/11/06 19:13:24 by cdiez-me          #+#    #+#             */
+/*   Updated: 2019/11/06 19:52:37 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_atoi(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int n;
 	int	i;
-	int	flag;
 
-	n = 0;
 	i = 0;
-	flag = 0;
-	if (str[i] == '-')
+	while (s1[i] != 0 && s2[i] != 0)
 	{
-		if (strcmp(str, "-2147483648") == 0)
-			return (-2147483648);
+		if (s1[i] - s2[i] != 0)
+			return (s1[i] -s2[i]);
 		else
-		{
-			flag = 1;
 			i++;
-		}
 	}
-	while (str[i] != '\0' && ft_isdigit(str[i]))
-		n = n * 10 + (str[i++] - '0');
-	if (flag)
-		n = -n;
-	return (n);
+	return (s1[i] - s2[i]);
 }

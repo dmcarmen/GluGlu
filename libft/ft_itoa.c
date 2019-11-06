@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edramire <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 20:51:06 by edramire          #+#    #+#             */
-/*   Updated: 2019/10/20 08:35:25 by edramire         ###   ########.fr       */
+/*   Created: 2019/11/06 19:06:43 by cdiez-me          #+#    #+#             */
+/*   Updated: 2019/11/06 19:09:53 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "libft.h"
 
 char	*ft_itoa_rcv(int nbr, char *s)
 {
@@ -27,7 +27,7 @@ char	*ft_itoa(int nbr)
 	int		n;
 
 	aux = ft_itoa_rcv(nbr, c);
-	*aux = '\0';
+	*aux = 0;
 	n = ft_strlen(c);
 	aux = malloc(sizeof(char) * (n + 1));
 	ft_strcpy(aux, c);

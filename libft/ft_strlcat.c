@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 17:28:46 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/11/06 19:51:26 by cdiez-me         ###   ########.fr       */
+/*   Created: 2019/11/06 19:27:04 by cdiez-me          #+#    #+#             */
+/*   Updated: 2019/11/06 19:55:06 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *str)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int n;
-	int	i;
-	int	flag;
+	unsigned int	i;
+	unsigned int	len;
 
-	n = 0;
+	len = ft_strlen(dest);
 	i = 0;
-	flag = 0;
-	if (str[i] == '-')
+	while (i < size - len - 1 && src[i])
 	{
-		if (strcmp(str, "-2147483648") == 0)
-			return (-2147483648);
-		else
-		{
-			flag = 1;
-			i++;
-		}
+		dest[i + len] = src[i];
+		i++;
 	}
-	while (str[i] != '\0' && ft_isdigit(str[i]))
-		n = n * 10 + (str[i++] - '0');
-	if (flag)
-		n = -n;
-	return (n);
+	while (dest[i + len])
+	{
+		dest[i + len] = 0;
+		i++;
+	}
+	if (size > 0)
+		dest[size - 1] = 0;
+	return (len + ft_strlen(src));
 }

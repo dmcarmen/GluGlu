@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/06 17:28:46 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/11/06 19:51:26 by cdiez-me         ###   ########.fr       */
+/*   Created: 2019/11/06 20:09:18 by cdiez-me          #+#    #+#             */
+/*   Updated: 2019/11/06 20:15:57 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *str)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	int n;
-	int	i;
-	int	flag;
+	int		len1;
+	int		len2;
+	char	*aux;
+	int		i;
 
-	n = 0;
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	aux = (char*)malloc(sizeof(char) * (len1 + len2 + 1));
+	if (!aux)
+		return NULL;
 	i = 0;
-	flag = 0;
-	if (str[i] == '-')
+	while (i < len1)
 	{
-		if (strcmp(str, "-2147483648") == 0)
-			return (-2147483648);
-		else
-		{
-			flag = 1;
-			i++;
-		}
+		aux[i] = s1[i];
+		i++;
 	}
-	while (str[i] != '\0' && ft_isdigit(str[i]))
-		n = n * 10 + (str[i++] - '0');
-	if (flag)
-		n = -n;
-	return (n);
+	i = 0;
+	while (i < len2)
+	{
+		aux[i + len1] = s2[i];
+		i++;
+	}
+	aux[len1 + len2] = 0;
+	return (aux);
 }

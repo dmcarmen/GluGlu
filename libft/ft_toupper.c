@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/19 20:41:01 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/10/19 20:41:04 by cdiez-me         ###   ########.fr       */
+/*   Created: 2019/11/06 17:50:46 by cdiez-me          #+#    #+#             */
+/*   Updated: 2019/11/06 17:54:20 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putstr(char *str)
+int	toupper(int c)
 {
-	int	i;
-	int	len;
-
-	i = 0;
-	while (str[i])
-		i++;
-	len = i;
-	i = 0;
-	while (i < len)
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	if (ft_islower(c))
+		return (c - ('a' - 'A'));
+	return (c);
 }
