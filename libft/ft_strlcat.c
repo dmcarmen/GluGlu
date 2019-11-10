@@ -24,12 +24,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		dest[i + len] = src[i];
 		i++;
 	}
-	while (dest[i + len])
-	{
-		dest[i + len] = 0;
-		i++;
-	}
 	if (size > 0)
-		dest[size - 1] = 0;
+		dest[len + size - 1] = 0;
 	return (len + ft_strlen(src));
 }

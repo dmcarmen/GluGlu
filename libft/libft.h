@@ -36,7 +36,7 @@ int				ft_toupper(int c);
 ** str
 */
 
-int				ft_strlen(char *s);
+int				ft_strlen(const char *s);
 char			*ft_strcpy(char *dst, char *src);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 int				ft_strcmp(char *s1, char *s2);
@@ -44,6 +44,8 @@ unsigned int	ft_strlcat(char *dst, char *src, unsigned int size);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
+char *ft_strchr(const char *s, int c);
+char *ft_strrchr(const char *s, int c);
 
 /*
 ** write
@@ -60,5 +62,17 @@ void			ft_putendl_fd(char *str, int fd);
 
 int				ft_atoi(char *str);
 char			*ft_itoa(int n);
+
+/*
+** memory
+*/ 
+
+void	*ft_memset(void *s, int c, size_t n);
+void	*ft_bzero(void *s, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
+void	*ft_memmove(void *dest, const void *src, size_t n);
+void	*ft_memchr(void *s, int c, size_t n); //const void
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
 
 #endif

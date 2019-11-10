@@ -21,17 +21,14 @@ int		ft_atoi(char *str)
 	n = 0;
 	i = 0;
 	flag = 0;
-	if (str[i] == '-')
+	if (str[0] == '-')
 	{
-		if (strcmp(str, "-2147483648") == 0)
+		flag = 1;
+		if (ft_strcmp(str, "-2147483648") == 0)
 			return (-2147483648);
-		else
-		{
-			flag = 1;
-			i++;
-		}
+		i++;
 	}
-	while (str[i] != '\0' && ft_isdigit(str[i]))
+	while (str[i] && ft_isdigit(str[i]))
 		n = n * 10 + (str[i++] - '0');
 	if (flag)
 		n = -n;

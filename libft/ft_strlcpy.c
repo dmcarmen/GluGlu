@@ -24,11 +24,6 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		dest[i] = src[i];
 		i++;
 	}
-	while (dest[i])
-	{
-		dest[i] = 0;
-		i++;
-	}
 	if (size > 0)
 		dest[size - 1] = 0;
 	return (len);

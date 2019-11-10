@@ -12,24 +12,40 @@
 
 #include "libft.h"
 
-char	*ft_itoa_rcv(int nbr, char *s)
+char	*ft_itoa_rec(int nb, char *c)
 {
-	if (nbr / 10 > 0)
-		s = ft_itoa_rcv(nbr / 10, s);
-	*s = '0' + nbr % 10;
-	return (s + 1);
+	if (nb / 10 > 0)
+		c = ft_itoa_rec(nb / 10, c);
+	*c = '0' + nb % 10;
+	*(c + 1) = 0;
+	return (c + 1);
 }
 
-char	*ft_itoa(int nbr)
+char	*ft_itoa(int nb)
 {
-	char	c[12];
+	char	c[13];
 	char	*aux;
-	int		n;
 
-	aux = ft_itoa_rcv(nbr, c);
-	*aux = 0;
-	n = ft_strlen(c);
-	aux = malloc(sizeof(char) * (n + 1));
+	if (nb == -2147483648)
+	{
+		aux = malloc(sizeof(char) * 13);
+		if (!aux)
+			return NULL;
+		ft_strcpy(aux, "-2147483648");
+		return (aux);
+	}
+	if (nb < 0)
+	{
+		c[0] = '-';
+		nb = -nb;	
+		aux = ft_itoa_rec(nb, c + 1); // comprobar
+	}
+	else
+		aux = ft_itoa_rec(nb, c);
+	aux[0] = 0;
+	aux = malloc(sizeof(char) * (ft_strlen(c) + 1));
+	if (!aux)
+		return NULL;
 	ft_strcpy(aux, c);
 	return (aux);
 }
