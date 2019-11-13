@@ -20,17 +20,19 @@ int		ft_atoi(char *str)
 
 	n = 0;
 	i = 0;
-	flag = 0;
-	if (str[0] == '-')
+	flag = 1;
+	while (str[i] && ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-')
 	{
-		flag = 1;
+		flag = -1;
 		if (ft_strcmp(str, "-2147483648") == 0)
 			return (-2147483648);
 		i++;
 	}
+	else if (str[i] == '+')
+		i++;
 	while (str[i] && ft_isdigit(str[i]))
 		n = n * 10 + (str[i++] - '0');
-	if (flag)
-		n = -n;
-	return (n);
+	return (n * flag);
 }

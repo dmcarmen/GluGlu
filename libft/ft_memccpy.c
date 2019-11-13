@@ -9,13 +9,12 @@ void *ft_memccpy(void *dest, const void *src, int c, size_t n)
 	pdest = (unsigned char*)dest;
 	psrc = (const unsigned char*)src;
 	i = 0;
-	while (i < n && psrc[i] != c)
+	while (i < n)
 	{
 		pdest[i] = psrc[i];
+		if (psrc[i] == c)
+			return ((void*)(dest + i+ 1));
 		i++;
 	}
-	if (i == n)
-		return (NULL);
-	else
-		return (dest + i + 1);
+	return (NULL);
 }

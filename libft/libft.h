@@ -29,6 +29,8 @@ int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isprint(int c);
 int				ft_isascii(int c);
+int				ft_isblank(int c);
+int				ft_isspace(int c);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 
@@ -37,15 +39,18 @@ int				ft_toupper(int c);
 */
 
 int				ft_strlen(const char *s);
-char			*ft_strcpy(char *dst, char *src);
+char			*ft_strcpy(char *dst, const char *src);
+char	*ft_strncpy(char *dst, const char *src, size_t n);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 int				ft_strcmp(char *s1, char *s2);
+int				ft_strncmp(char *s1, char *s2, size_t n);
 unsigned int	ft_strlcat(char *dst, char *src, unsigned int size);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
-char *ft_strchr(const char *s, int c);
-char *ft_strrchr(const char *s, int c);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 /*
 ** write
@@ -74,5 +79,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(void *s, int c, size_t n); //const void
 int	ft_memcmp(const void *s1, const void *s2, size_t n);
+void	*ft_calloc(size_t nmeb, size_t size);
+char	*ft_strdup(char *s);
 
 #endif

@@ -15,16 +15,18 @@
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
+	unsigned int	j;
 	unsigned int	len;
 
 	len = ft_strlen(dest);
-	i = 0;
-	while (i < size - len - 1 && src[i])
+	i = len;
+	j = 0;
+	while (src[j] != '\0' && i + 1 < size)
 	{
-		dest[i + len] = src[i];
+		dest[i] = src[j];
 		i++;
+		j++;
 	}
-	if (size > 0)
-		dest[len + size - 1] = 0;
-	return (len + ft_strlen(src));
+	dest[i] = 0;
+	return (size <= len ? ft_strlen(src) + size : len + ft_strlen(src));
 }
