@@ -6,7 +6,7 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 20:16:40 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/11/06 20:35:05 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2019/11/14 19:48:04 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 	char	*aux;
 
 	if (!s1 || !set)

@@ -6,16 +6,18 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 20:24:55 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/11/06 19:50:06 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2019/11/14 20:56:35 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	len;
+	size_t	len;
 
+	if (!dest || !src)
+		return (0);
 	len = ft_strlen(src);
 	if (len < size)
 		ft_strncpy(dest, src, len + 1);
