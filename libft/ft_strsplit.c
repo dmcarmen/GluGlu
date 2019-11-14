@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char **ft_split(char const *s, char c)
+char **ft_strsplit(char const *s, char c)
 {
 	char	**aux;
 	int	i;
