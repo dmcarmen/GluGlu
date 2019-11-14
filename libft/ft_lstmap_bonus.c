@@ -6,7 +6,7 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 19:30:19 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/11/14 22:06:19 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2019/11/14 22:36:45 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*ret;
 	t_list	*temp;
 
-	if (!lst || !f || !del)
+	if (!f || !lst || !del)
 		return (NULL);
 	ret = NULL;
 	while (lst)
