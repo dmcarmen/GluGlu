@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	neg_and_clean(char *str, int *i)
+static int	neg_and_clean(const char *str, int *i)
 {
 	int	flag;
 
@@ -31,7 +31,7 @@ static int	neg_and_clean(char *str, int *i)
 	return (flag);
 }
 
-int			ft_atoi(char *str)
+int			ft_atoi(const char *str)
 {
 	unsigned int	n;
 	int				i;

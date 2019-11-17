@@ -15,16 +15,11 @@
 void	ft_putstr_fd(char *str, int fd)
 {
 	int	i;
-	int	len;
 
 	if (!str || fd < 0)
 		return ;
 	i = 0;
 	while (str[i])
-		i++;
-	len = i;
-	i = 0;
-	while (i < len)
 	{
 		ft_putchar_fd(str[i], fd);
 		i++;
