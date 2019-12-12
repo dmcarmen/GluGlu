@@ -5,7 +5,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
+#  define BUFFER_SIZE 1024
 # endif
 
 # define ERROR -1
