@@ -6,7 +6,7 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 19:41:23 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/11/14 19:41:36 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2019/12/12 20:31:17 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t n)
 		dst[i] = src[i];
 		i++;
 	}
-	while (i++ < n && dst[i])
+	while (i++ < n)
 		dst[i - 1] = 0;
 	return (dst);
 }
