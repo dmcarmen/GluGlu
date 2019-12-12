@@ -14,17 +14,17 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned int	i;
+	size_t	i;
+	int			len_little;
 
-	if (!*little)
+	if (!(*little))
 		return ((char*)big);
+	len_little = ft_strlen(little);
 	i = 0;
-	if (ft_strcmp((char*)big, (char*)little) == 0)
-		return ((char*)big);
-	while (big[i] && (i < len - ft_strlen(little)) && (unsigned int)len != 0)
+	while (big[i] && i + len_little <= len)
 	{
-		if (ft_strncmp((char*)little, (char*)&big[i], ft_strlen(little)) == 0)
-			return ((char*)&big[i]);
+		if (ft_memcmp(big + i, little, len_little) == 0)
+			return (char *)big + i;
 		i++;
 	}
 	return (NULL);

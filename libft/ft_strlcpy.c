@@ -20,10 +20,10 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		return (0);
 	len = ft_strlen(src);
 	if (len < size)
-		ft_strncpy(dest, src, len + 1);
+		ft_memcpy(dest, src, len + 1);
 	else if (size != 0)
 	{
-		ft_strncpy(dest, src, size - 1);
+		ft_memcpy(dest, src, size - 1);
 		dest[size - 1] = 0;
 	}
 	return (len);

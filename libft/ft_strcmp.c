@@ -12,12 +12,15 @@
 
 #include "libft.h"
 
+static size_t	ft_min(size_t a, size_t b)
+{
+	return (a < b ? a : b);
+}
+
 int	ft_strcmp(const char *s1, const char *s2)
 {
-	int	i;
+	size_t	len;
 
-	i = 0;
-	while (s1[i] != 0 && s2[i] != 0 && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	len = ft_min(ft_strlen(s1) + 1, ft_strlen(s2) + 1);
+	return (ft_memcmp(s1, s2, len));
 }

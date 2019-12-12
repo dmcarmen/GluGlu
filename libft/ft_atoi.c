@@ -12,43 +12,26 @@
 
 #include "libft.h"
 
-static int	neg_and_clean(const char *str, int *i)
+int	ft_atoi(const char *str)
 {
-	int	flag;
+	size_t	i;
+	long	n;
+	long	prev_n;
+	int		flag;
 
-	flag = 1;
-	while (ft_isspace(str[*i]))
-		(*i)++;
-	if (str[*i] == '-')
-	{
-		if (ft_strcmp(str, "-2147483648") == 0)
-			return (-2147483648);
-		flag = -1;
-		(*i)++;
-	}
-	else if (str[*i] == '+')
-		(*i)++;
-	return (flag);
-}
-
-int			ft_atoi(const char *str)
-{
-	unsigned int	n;
-	int				i;
-	int				flag;
-
-	n = 0;
 	i = 0;
-	flag = neg_and_clean(str, &i);
-	if (flag == -2147483648)
-		return (flag);
+	n = 0;
+	flag = 1;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		flag = (str[i++] == '-' ? -1 : 1);
 	while (ft_isdigit(str[i]))
 	{
-		if (flag == 1 && n > (unsigned int)2147483648)
-			return (-1);
-		else if (flag == -1 && n > (unsigned int)-2147483648)
-			return (0);
-		n = n * 10 + (str[i++] - '0');
+		prev_n = n * 10 + (str[i++] - '0');
+		if (prev_n < n)
+			return (flag < 0 ? 0 : -1);
+		n = prev_n;
 	}
-	return (n * flag);
+	return (flag * n);
 }
