@@ -37,8 +37,8 @@ int	get_next_line_rec(int fd, char *line)
 	}
 	else
 	{
-		ft_strappend(line, buf, BUFFER_SIZE); //BUFFERSIZE maybe no
-		ft_bzero(buf, BUFFER_SIZE);
+		line = ft_strappend(line, buf, BUFFER_SIZE); //BUFFERSIZE maybe no
+		ft_memset(buf, 0, BUFFER_SIZE);
 		return (get_next_line_rec(fd, line));
 	}
 }
