@@ -1,0 +1,153 @@
+# include <stdlib.h>
+# include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
+
+# define ERROR (-1)
+# define NOT_EOFILE 1
+# define EOFILE 0
+#include <stdio.h>
+
+
+char    *ft_strcpy(char *dst, const char *src)
+{
+    int    i;
+
+    i = 0;
+    while (src[i])
+    {
+        dst[i] = src[i];
+        i++;
+    }
+    dst[i] = 0;
+    return (dst);
+}
+
+char    *ft_strncpy(char *dst, const char *src, size_t n)
+{
+    unsigned int    i;
+
+    i = 0;
+    while (src[i] && i < n)
+    {
+        dst[i] = src[i];
+        i++;
+    }
+    while (i++ < n)
+        dst[i - 1] = 0;
+    return (dst);
+}
+
+int    ft_strlen(char *str)
+{
+    int    i;
+
+    i = 0;
+    while (str[i])
+        i++;
+    return (i);
+}
+
+
+char    *ft_strappend(char *s1, char *s2, int n)
+{
+    char *aux;
+
+    aux = (char*)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+    if (!aux)
+        return (NULL);
+    ft_strcpy(aux, s1);
+    ft_strncpy(aux + ft_strlen(s1), s2, n);
+    aux[ft_strlen(s1) + n + 1] = 0;
+    free(s1); //no se si alguien mas
+    return (aux);
+}
+
+char    *ft_strchr_pos(const char *s, int c, int *pos)
+{
+    *pos = 0;
+    while (*s)
+    {
+        if (*s == c)
+            return ((char *)s);
+        s++;
+        (*pos)++;
+    }
+    if (c == 0)
+    {
+        *pos = 0;
+        return ((char *)s);
+    }
+    return (NULL);
+}
+
+void    *ft_memset(void *s, int c, size_t n)
+{
+    size_t            i;
+    unsigned char    *ps;
+
+    ps = (unsigned char*)s;
+    i = 0;
+    while (i < n)
+    {
+        ps[i] = c;
+        i++;
+    }
+    return (s);
+}
+
+
+int    get_next_line_rec(int fd, char *line)
+{
+    static char    buf[BUFFER_SIZE + 1] = {0};
+    int        ret;
+    int        pos;
+    char        *aux;
+
+    if (buf[0] == 0)
+    {
+        ret = read(fd, buf, BUFFER_SIZE);
+        if (ret < 0)
+            return (ERROR);
+        else if (ret == 0)
+            return (EOFILE);
+        if (ret != BUFFER_SIZE)
+            ret = EOFILE;
+    }
+    if ((aux = ft_strchr_pos(buf, '\n', &pos)) != NULL)
+    {
+        line = ft_strappend(line, buf, pos); //maybe + 1
+        ft_strcpy(buf, aux);
+        // el 0 jeje
+        return (NOT_EOFILE);
+    }
+    else
+    {
+        line = ft_strappend(line, buf, BUFFER_SIZE); //BUFFERSIZE maybe no
+        ft_memset(buf, 0, BUFFER_SIZE);
+        return (get_next_line_rec(fd, line));
+    }
+}
+
+
+int    get_next_line(int fd, char **line)
+{
+    char    *line_aux;
+    int    ret;
+
+    line_aux = NULL;
+    ret = get_next_line_rec(fd, line_aux);
+    ft_strcpy(*line, line_aux);
+    return (ret);
+}
+int main()
+{
+    int ret;
+    char *line = NULL;
+    int fd = 0;
+
+    ret = get_next_line(fd, &line);
+    printf("%d\n", ret);
+}
