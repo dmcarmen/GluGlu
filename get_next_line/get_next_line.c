@@ -1,44 +1,54 @@
 #include "get_next_line.h"
 
-int	get_next_line(int fd, char **line)
+static int	clear_line(char **static_buf, char **line)
 {
-	char	*line_aux;
-	int	ret;
-
-	line_aux = NULL;
-	ret = get_next_line_rec(fd, line_aux);
-	ft_strcpy(*line, line_aux);
-	return (ret);
-}
-
-int	get_next_line_rec(int fd, char *line)
-{
-	static char	buf[BUFFER_SIZE + 1] = {0};
-	int		ret;
-	int		pos;
-	char		*aux;
-
-	if (buf[0] == 0)
+	char	*rest;
+	char	*aux;
+	
+	if (!(rest = ft_strchr(*static_buf, "\n")))
 	{
-		ret = read(fd, buf, BUFFER_SIZE);
-		if (ret < 0)
-			return (ERROR);
-		else if (ret == 0)
-			return (EOFILE);
-		if (ret != BUFFER_SIZE)
-			ret = EOFILE;
-	}
-	if ((aux = ft_strchr_pos(buf, '\n', &pos)) != NULL)
-	{
-		line = ft_strappend(line, buf, pos); //maybe + 1
-		ft_strcpy(buf, aux);
-		// el 0 jeje
-		return (NOT_EOFILE);
+		*rest = 0;
+		*line = strdup(*static_buf);
+		aux = strdup(++rest)
+		free(*static_buf);
+		*static_buf = aux;
 	}
 	else
-	{
-		line = ft_strappend(line, buf, BUFFER_SIZE); //BUFFERSIZE maybe no
-		ft_memset(buf, 0, BUFFER_SIZE);
-		return (get_next_line_rec(fd, line));
+	{	
+		if (!*static_buf)
+			*line = ft_strdup("");
+		else
+			*line = *static_buf;
+		*static_buf = NULL;
+		return (EOF);
 	}
+	return (NOT_EOF);
+}
+
+int			get_next_line(int fd, char **line)
+{
+	char		buf[BUFFER_SIZE + 1];
+	static char	*static_buf;
+	int			n_read;
+	char		*aux;
+	
+	if (fd < 0 || BUFFER_SIZE < 1 || !line)
+		return (ERROR);
+	while ((n_read = read(fd, buf, BUFFER_SIZE)) > 0)
+	{
+		buf[n_read] = 0;
+		if (!static_buf)
+			static_buf = ft_strdup(buf);
+		else
+		{
+			aux = ft_strjoin(static_buf, buf);
+			free(static_buf);
+			static_buf = aux;
+		}
+		if (!ft_strchr(static_buf, '\n'))
+			break;
+	}
+	if (n_read < 0)
+		return (ERROR);
+	return (clear_line(&static_buf, line));
 }

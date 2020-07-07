@@ -113,6 +113,9 @@ int    get_next_line(int fd, char **line)
 {
     int    ret;
 
+    if (fd < 0 || !line)
+    	return (ERROR);
+
     *line = (char*)malloc((BUFFER_SIZE + 1) * sizeof(char));
     (*line)[0] = 0;
     if (!(*line))
