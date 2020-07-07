@@ -6,7 +6,7 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 17:28:46 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/11/14 21:34:36 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2020/07/07 16:51:04 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #  define BUFFER_SIZE 1024
 # endif
 
-# define ERROR (-1)
+# define ERROR -1
 # define NOT_EOFILE 1
 # define EOFILE 0
 

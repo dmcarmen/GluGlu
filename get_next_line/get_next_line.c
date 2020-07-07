@@ -6,7 +6,7 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 17:28:46 by cdiez-me          #+#    #+#             */
-/*   Updated: 2019/11/14 21:34:36 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2020/07/07 16:56:57 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ static int	clear_line(char **static_buf, char **line)
 {
 	char	*rest;
 	char	*aux;
-	
-	if (!(rest = ft_strchr(*static_buf, "\n")))
+
+	if (!(rest = ft_strchr(*static_buf, '\n')))
 	{
 		*rest = 0;
-		*line = strdup(*static_buf);
-		aux = strdup(++rest)
+		*line = ft_strdup(*static_buf);
+		aux = ft_strdup(++rest);
 		free(*static_buf);
 		*static_buf = aux;
+		return (NOT_EOFILE);
 	}
 	else
-	{	
+	{
 		if (!*static_buf)
 			*line = ft_strdup("");
 		else
 			*line = *static_buf;
 		*static_buf = NULL;
-		return (EOF);
+		return (EOFILE);
 	}
-	return (NOT_EOF);
 }
 
 int			get_next_line(int fd, char **line)
@@ -43,7 +43,7 @@ int			get_next_line(int fd, char **line)
 	static char	*static_buf;
 	int			n_read;
 	char		*aux;
-	
+
 	if (fd < 0 || BUFFER_SIZE < 1 || !line)
 		return (ERROR);
 	while ((n_read = read(fd, buf, BUFFER_SIZE)) > 0)
@@ -58,7 +58,7 @@ int			get_next_line(int fd, char **line)
 			static_buf = aux;
 		}
 		if (!ft_strchr(static_buf, '\n'))
-			break;
+			break ;
 	}
 	if (n_read < 0)
 		return (ERROR);
