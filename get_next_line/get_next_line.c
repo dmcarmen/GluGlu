@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-static int	clear_line(char **static_buf, char **line)
+static int	clear_buffer(char **static_buf, char **line)
 {
 	char	*rest;
 	char	*aux;
@@ -64,5 +64,5 @@ int			get_next_line(int fd, char **line)
 	}
 	if (n_read < 0)
 		return (ERROR);
-	return (clear_line(&static_buf, line));
+	return (clear_buffer(&static_buf, line));
 }
