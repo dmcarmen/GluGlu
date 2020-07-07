@@ -6,7 +6,7 @@
 /*   By: cdiez-me <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 17:28:46 by cdiez-me          #+#    #+#             */
-/*   Updated: 2020/07/07 16:56:57 by cdiez-me         ###   ########.fr       */
+/*   Updated: 2020/07/07 19:45:26 by cdiez-me         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			get_next_line(int fd, char **line)
 	static char	*static_buf;
 	int			n_read;
 	char		*aux;
-	
+
 	if (fd < 0 || BUFFER_SIZE < 1 || !line)
 		return (ERROR);
 	while ((n_read = read(fd, buf, BUFFER_SIZE)) > 0)
